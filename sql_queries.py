@@ -63,7 +63,7 @@ songplay_table_create = ("""
             songplay_id         INTEGER IDENTITY(0,1) NOT NULL,
             start_time          INTEGER NOT NULL,
             user_id             INTEGER NOT NULL, 
-            level               INTEGER NOT NULL,
+            level               VARCHAR(5) NOT NULL,
             song_id             INTEGER NOT NULL distkey,
             artist_id           INTEGER NOT NULL,
             session_id          INTEGER NOT NUL,
@@ -135,8 +135,17 @@ staging_songs_copy = ("""
 songplay_table_insert = ("""
         INSERT INTO (start_time , user_id, level, song_id, artist_id, session_id, location, user_agent)
         SELECT
-                
-        FROM 
+               DISTINCT ( TO_CHAR(start_time :: DATE, 'yyyyMMDD')::integer)  as start date,'
+                se.user_id as user_id,
+                se.level as level,
+                ss.song_id as song_id,
+                ss.artist_id as artist_id,
+                se.session_id as session_id,
+                se.location as location,
+                se.user_agent as user_agent
+        FROM staging_events se
+        JOIN staging_songs ss ON (se.artist_name = ss.artist_name) 
+
 """)
 
 user_table_insert = ("""

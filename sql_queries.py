@@ -30,7 +30,7 @@ staging_events_table_create= ("""
                 gender          VARCHAR(10) NOT NULL,
                 item_in_session INTEGER NOT NULL,
                 last_name       VARCHAR(25) NOT NULL,
-                length          DECIAML(8,6) NOT NULL,
+                length          DECIMAL(8,6) NOT NULL,
                 level           VARCHAR(5) NOT NULL,
                 location        VARCHAR(50) NOT NULL,
                 method          VARCHAR(10) NOT NULL,
@@ -66,7 +66,7 @@ songplay_table_create = ("""
             level               VARCHAR(5) NOT NULL,
             song_id             INTEGER NOT NULL distkey,
             artist_id           INTEGER NOT NULL,
-            session_id          INTEGER NOT NUL,
+            session_id          INTEGER NOT NULL,
             location            VARCHAR(50) NOT NULL,
             user_agent          VARCHAR(50) NOT NULL
         )
@@ -95,7 +95,7 @@ song_table_create = ("""
 artist_table_create = ("""
         CREATE TABLE artists(
             artist_id   INTEGER NOT NULL sortkey,
-            artist_name VARCHAR(50) NOT NULL
+            artist_name VARCHAR(50) NOT NULL,
             location    VARCHAR(25) NOT NULL,
             latitude   DECIMAL(8,6) NOT NULL,
             longitude   DECIMAL(9,6) NOT NULL 
@@ -104,9 +104,9 @@ artist_table_create = ("""
 
 time_table_create = ("""
         CREATE TABLE time(
-            stat_time    INTEGER NOT NULL sortkey , 
-            hour         VARCHAR(10) NOT NUL,
-            day         VARCHAR(10) NOT NUL,
+            stat_time    INTEGER NOT NULL sortkey,
+            hour         VARCHAR(10) NOT NULL
+            day         VARCHAR(10) NOT NULL,
             week        VARCHAR(10) NOT NULL,
             month       VARCHAR(10) NOT NULL,
             year        INTEGER NOT NULL,

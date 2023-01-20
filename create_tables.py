@@ -14,7 +14,7 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     '''
-    Create tables
+    Create dimesion and fact tables
     '''
     for query in create_table_queries:
         cur.execute(query)

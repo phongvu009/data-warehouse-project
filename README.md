@@ -27,4 +27,11 @@ One fact table:
    This will give the list most listening song by an user
 
 ## How to run 
-Test by running etl.py after running create_tables.py and running the analytic queries on your Redshift database to compare your results with the expected results.
+1. Create tables
+'''
+python create_tables.py
+'''
+2. Do ETL 
+'''
+python etl.py
+'''

@@ -28,10 +28,10 @@ One fact table:
 
 ## How to run 
 1. Create tables
-'''
+```
 python create_tables.py
-'''
+```
 2. Do ETL 
-'''
+```
 python etl.py
-'''
+```

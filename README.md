@@ -27,11 +27,15 @@ One fact table:
    This will give the list most listening song by an user
 
 ## How to run 
-1. Create tables
+1. Create Cluster
+   - Providing KEY and SECRET in spk.cfg ( DO NOT SHARE IT PUBLICALLY )
+   - Using Create_Cluster.ipynb notebook file 
+2. Create tables
 ```
 python create_tables.py
+
 ```
-2. Do ETL 
+3. Do ETL 
 ```
 python etl.py
 ```
